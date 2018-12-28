@@ -184,13 +184,13 @@ uart0_write_char_no_wait(char c)
  * FunctionName : uart0_tx_buffer
  * Description  : use uart0 to transfer buffer
  * Parameters   : uint8_t *buf - point to send buffer
- *                uint16 len - buffer len
+ *                uint16_t len - buffer len
  * Returns      :
 *******************************************************************************/
 void ICACHE_FLASH_ATTR
-uart0_tx_buffer(uint8_t *buf, uint16 len)
+uart0_tx_buffer(uint8_t *buf, uint16_t len)
 {
-    uint16 i;
+    uint16_t i;
     for (i = 0; i < len; i++)
     {
         uart_tx_one_char(UART0, buf[i]);
@@ -201,7 +201,7 @@ uart0_tx_buffer(uint8_t *buf, uint16 len)
  * FunctionName : uart0_sendStr
  * Description  : use uart0 to transfer buffer
  * Parameters   : uint8_t *buf - point to send buffer
- *                uint16 len - buffer len
+ *                uint16_t len - buffer len
  * Returns      :
 *******************************************************************************/
 void ICACHE_FLASH_ATTR
@@ -283,7 +283,7 @@ void ICACHE_FLASH_ATTR
 uart_test_rx()
 {
     uint8_t uart_buf[128]={0};
-    uint16 len = 0;
+    uint16_t len = 0;
     len = rx_buff_deq(uart_buf, 128 );
     tx_buff_enq(uart_buf,len);
 }
@@ -430,11 +430,11 @@ Uart_Buf_Init(uint32_t buf_size)
 
 
 //copy uart buffer
-LOCAL void Uart_Buf_Cpy(struct UartBuffer* pCur, char* pdata , uint16 data_len)
+LOCAL void Uart_Buf_Cpy(struct UartBuffer* pCur, char* pdata , uint16_t data_len)
 {
     if(data_len == 0) return ;
     
-    uint16 tail_len = pCur->pUartBuff + pCur->UartBuffSize - pCur->pInPos ;
+    uint16_t tail_len = pCur->pUartBuff + pCur->UartBuffSize - pCur->pInPos ;
     if(tail_len >= data_len){  //do not need to loop back  the queue
         os_memcpy(pCur->pInPos , pdata , data_len );
         pCur->pInPos += ( data_len );
@@ -468,12 +468,12 @@ uart_buf_free(struct UartBuffer* pBuff)
 
 
 //rx buffer dequeue
-uint16 ICACHE_FLASH_ATTR
-rx_buff_deq(char* pdata, uint16 data_len )
+uint16_t ICACHE_FLASH_ATTR
+rx_buff_deq(char* pdata, uint16_t data_len )
 {
-    uint16 buf_len =  (pRxBuffer->UartBuffSize- pRxBuffer->Space);
-    uint16 tail_len = pRxBuffer->pUartBuff + pRxBuffer->UartBuffSize - pRxBuffer->pOutPos ;
-    uint16 len_tmp = 0;
+    uint16_t buf_len =  (pRxBuffer->UartBuffSize- pRxBuffer->Space);
+    uint16_t tail_len = pRxBuffer->pUartBuff + pRxBuffer->UartBuffSize - pRxBuffer->pOutPos ;
+    uint16_t len_tmp = 0;
     len_tmp = ((data_len > buf_len)?buf_len:data_len);
     if(pRxBuffer->pOutPos <= pRxBuffer->pInPos){
         os_memcpy(pdata, pRxBuffer->pOutPos,len_tmp);
@@ -536,7 +536,7 @@ void Uart_rx_buff_enq()
 
 //fill the uart tx buffer
 void ICACHE_FLASH_ATTR
-tx_buff_enq(char* pdata, uint16 data_len )
+tx_buff_enq(char* pdata, uint16_t data_len )
 {
     CLEAR_PERI_REG_MASK(UART_INT_ENA(UART0), UART_TXFIFO_EMPTY_INT_ENA);
 
@@ -592,7 +592,7 @@ void tx_start_uart_buffer(uint8_t uart_no)
     uint8_t tx_fifo_len = (READ_PERI_REG(UART_STATUS(uart_no))>>UART_TXFIFO_CNT_S)&UART_TXFIFO_CNT;
     uint8_t fifo_remain = UART_FIFO_LEN - tx_fifo_len ;
     uint8_t len_tmp;
-    uint16 tail_ptx_len,head_ptx_len,data_len;
+    uint16_t tail_ptx_len,head_ptx_len,data_len;
     //struct UartBuffer* pTxBuff = *get_buff_prt();
     
     if(pTxBuffer){      

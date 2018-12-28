@@ -24,9 +24,9 @@
 
 #ifndef __KEY_H__
 #define __KEY_H__
-
+#include "ets_sys.h"
 #include "gpio.h"
-
+#include "os_type.h"
 typedef void (* key_function)(void);
 
 struct single_key_param {

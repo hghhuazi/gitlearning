@@ -119,7 +119,7 @@ void ICACHE_FLASH_ATTR hw_timer_init(frc1_timer_source_type source_type, uint8_t
 #if 0
 void   hw_test_timer_cb(void)
 {
-    static uint16 j = 0;
+    static uint16_t j = 0;
     j++;
 
     if ((WDEV_NOW() - tick_now2) >= 1000000) {

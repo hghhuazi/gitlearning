@@ -167,7 +167,7 @@ void uart0_sendStr(const char *str);
     uint8_t     *pInPos;
     uint8_t     *pOutPos;
     STATUS  BuffState;
-    uint16    Space;  //remanent space of the buffer
+    uint16_t    Space;  //remanent space of the buffer
     uint8_t  TcpControl;
     struct  UartBuffer     *  nextBuff;
 };
@@ -194,17 +194,17 @@ struct UartBuffer*  Uart_Buf_Init();
 
 
 #if UART_BUFF_EN
-LOCAL void  Uart_Buf_Cpy(struct UartBuffer* pCur, char* pdata , uint16 data_len);
+LOCAL void  Uart_Buf_Cpy(struct UartBuffer* pCur, char* pdata , uint16_t data_len);
 void  uart_buf_free(struct UartBuffer* pBuff);
-void  tx_buff_enq(char* pdata, uint16 data_len );
+void  tx_buff_enq(char* pdata, uint16_t data_len );
 LOCAL void  tx_fifo_insert(struct UartBuffer* pTxBuff, uint8_t data_len,  uint8_t uart_no);
 void  tx_start_uart_buffer(uint8_t uart_no);
-uint16  rx_buff_deq(char* pdata, uint16 data_len );
+uint16_t  rx_buff_deq(char* pdata, uint16_t data_len );
 void  Uart_rx_buff_enq();
 #endif
 void  uart_rx_intr_enable(uint8_t uart_no);
 void  uart_rx_intr_disable(uint8_t uart_no);
-void uart0_tx_buffer(uint8_t *buf, uint16 len);
+void uart0_tx_buffer(uint8_t *buf, uint16_t len);
 
 //==============================================
 #define FUNC_UART0_CTS 4

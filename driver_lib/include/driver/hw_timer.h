@@ -22,7 +22,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  */
-
+#include "ets_sys.h"
 #ifndef __hw_timer_H__
 #define __hw_timer_H__
 //TIMER PREDIVED MODE

@@ -1,5 +1,6 @@
 .output/eagle/debug/obj/i2c_master.o .output/eagle/debug/obj/i2c_master.d : i2c_master.c ../../include/ets_sys.h \
- ../../include/c_types.h ../../include/eagle_soc.h ../../include/osapi.h \
+ ../../include/c_types.h ../../include/eagle_soc.h \
+ ../include/driver/i2c_master.h ../../include/osapi.h \
  /home/huangguanhua/esp/xtensa-lx106-elf/xtensa-lx106-elf/include/string.h \
  /home/huangguanhua/esp/xtensa-lx106-elf/xtensa-lx106-elf/include/_ansi.h \
  /home/huangguanhua/esp/xtensa-lx106-elf/xtensa-lx106-elf/include/newlib.h \
@@ -17,4 +18,4 @@
  /home/huangguanhua/esp/xtensa-lx106-elf/xtensa-lx106-elf/include/sys/cdefs.h \
  /home/huangguanhua/esp/xtensa-lx106-elf/xtensa-lx106-elf/include/sys/string.h \
  ../../include/os_type.h ../../include/ets_sys.h ../include/user_config.h \
- ../../include/gpio.h ../include/driver/i2c_master.h
+ ../../include/gpio.h

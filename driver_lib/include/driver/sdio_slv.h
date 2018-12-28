@@ -24,6 +24,7 @@
 
 #ifndef __SDIO_SLAVE_H__
 #define __SDIO_SLAVE_H__
+#include "ets_sys.h"
 #include "c_types.h"
 
 #include "user_interface.h"

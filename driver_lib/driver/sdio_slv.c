@@ -195,7 +195,7 @@ static void sdio_slave_isr(void *para)
 {
     uint32_t slc_intr_status,postval;
     static uint8_t state =0;
-    uint16 rx_len,i;
+    uint16_t rx_len,i;
     uint32_t* pword;
     union sdio_slave_status sdio_sta;
 
@@ -301,7 +301,7 @@ static void tx_buff_handle_done(void)
     //*******************************************************************//
 
 }
-static int32 rx_buff_load_done(uint16 rx_len)
+static int32 rx_buff_load_done(uint16_t rx_len)
 {
     union sdio_slave_status sdio_sta;
 

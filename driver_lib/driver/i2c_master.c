@@ -21,8 +21,9 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  */
-
 #include "ets_sys.h"
+#include "driver/i2c_master.h"
+
 #include "osapi.h"
 #include "gpio.h"
 
